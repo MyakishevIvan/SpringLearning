@@ -9,6 +9,18 @@
 <p th:text="${'Email: ' + person.getEmail()}">VALUE</p>
 <p th:text="${person.getId()}">VALUE</p>
 
+<!-- Проверяем, является ли атрибут "books" строкой "zero" -->
+<div th:if="${books == 'zero'}">
+    <p>No books</p>
+</div>
+
+<!-- Если "books" не равен "zero", выводим список книг -->
+<div th:unless="${books == 'zero'}">
+    <ul>
+        <li th:each="book : ${books}" th:text="${book.getName()}"></li>
+    </ul>
+</div>
+
 <a th:href="@{/people/{id}/edit(id=${person.getId()})}">Edit</a>
 
 <form th:method="DELETE" th:action="@{/people/{id}(id=${person.getId()})}">

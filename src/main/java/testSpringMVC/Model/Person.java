@@ -2,6 +2,7 @@ package testSpringMVC.Model;
 
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 
 public class Person {
@@ -14,6 +15,10 @@ public class Person {
     
     @NotEmpty
     private String email;
+
+   // @Pattern(regexp = "[A-Z]\\w+, [A-Z]\\w+, \\d{6}", message = "Your address should be in this format: Country, City, Postal Code (6 digits)")
+    private String address;
+    
     private int id;
     public void setId(Integer id) {
         this.id = id;
@@ -60,5 +65,13 @@ public class Person {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
     }
 }
